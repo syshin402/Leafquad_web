@@ -1,4 +1,318 @@
-.App {
+/* 
+  App.css 
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif; 
+  background-color: #FFFFFF;
+}
+
+/* Hide label visually but keep it accessible to screen readers */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 
+  HEADER
+*/
+.site-header {
+  width: 100%;
+  height: 112px;
+  background-color: #5DB996;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  width: 90%;
+  max-width: 1809px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+/* Logo + Title */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  width: 96px; 
+  height: auto;
+}
+
+.site-title {
+  color: #FBF6E9;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Navigation (from NavBar.js) */
+.main-nav .nav-links{
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.nav-links li a.current {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* 
+  SEARCH BAR
+*/
+.search-bar {
+  width: 90%;
+  max-width: 1009px;
+  margin: 1rem auto 2rem auto;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid #5DB996;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.search-icon {
+  width: 23px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #118B50;
+}
+
+/* 
+  MAIN CONTENT (RESULTS)
+*/
+.results-section {
+  width: 90%;
+  max-width: 1809px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.results-title {
+  color: #118B50;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 66px;
+  margin-bottom: 1rem;
+  
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 5rem;
+  justify-items: center;
+}
+
+/* Single Card */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 5px solid #5DB996;
+  width: 388px; 
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Card image */
+.card-image {
+  width: 100%;
+  height: 321px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+/* Card content wrapper */
+.card-content {
+  padding: 1rem;
+}
+
+/* Student Name */
+.card-name {
+  color: #118B50;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 46px;
+  margin: 0.5rem 0;
+}
+
+/* Major style*/
+.card-major {
+  color: #5DB996;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  line-height: 20px;
+  margin-bottom: 1rem;
+}
+
+/* Hobbies & Interests */
+.card-interests {
+  color: #118B50;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+/* Favorite star icon */
+.star-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: auto;
+  cursor: pointer; /* so user knows it's clickable */
+}
+
+/* 
+  FOOTER
+*/
+.site-footer {
+  width: 100%;
+  border-top: 2px solid #5DB996;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-text {
+  color: #777777;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.footer-icons img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  margin-left: 1rem;
+}
+
+
+/*login and profile block*/
+
+.nav-and-login {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+/* Login Button (shown when user is not logged in) */
+.login-button {
+  
+  margin-left: 0;
+  line-height: 1.2;
+
+  /* styling */
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background: white;
+  border-radius: 36.55px;
+
+  /* layout */
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+
+  /* pointer */
+  cursor: pointer;
+  
+}
+
+.login-button-text {
+  text-align: center;
+  color: #5DB996;
+  font-size: 24px;
+  font-family: 'DM Sans', sans-serif; 
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+  
+  
+}
+
+/* 2) Profile Block (shown when user is logged in) */
+.profile-block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+ 
+}
+
+.profile-block-image {
+  width: 45.14px;
+  height: 36px;
+  border-radius: 700px;
+}
+
+.profile-block-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-block-name {
+  color: #0F172A;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.profile-block-downarrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+/*.App {
   text-align: center;
 }
 
@@ -36,3 +350,4 @@
     transform: rotate(360deg);
   }
 }
+*/
