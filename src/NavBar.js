@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import logo from './images/logo.png';
 import profileblock from './images/login_image.png';
 import arrow from './images/Arrow.png';
-
+import { Link } from 'react-router-dom';
 function NavBar(){
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,11 +25,11 @@ function NavBar(){
                 <div className="nav-and-login">
                 <nav className="main-nav">
                     <ul className="nav-links">
-                        <li><a href="#">Home</a></li>
+                        <li><Link to="/Home">Home</Link></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#" className="current">Friends</a></li>
+                        <li><Link to="/" className="current">Friends</Link></li>
                     </ul>
                 </nav>
             {!isLoggedIn ?  (

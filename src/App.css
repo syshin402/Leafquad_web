@@ -310,7 +310,142 @@ body {
   gap: 0.5rem;
 }
 
+/*Homepage elements*/
+.Home {
+  background-color: #118B50;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
+/* 
+   The main content area from Figma 
+   left: -12px; top: 125px; with a 1714x874 size 
+*/
+.home-content {
+  width: 1714px;
+  height: 874px;
+  position: absolute;
+  left: -12px;
+  top: 125px;
+}
+
+/* The big image on the left side, 888x874 */
+.home-image {
+  width: 888px;
+  height: 874px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+/* Big text on the right: 724x444 at (990, 210). */
+.home-bigtext {
+  width: 724px;
+  height: 444px;
+  position: absolute;
+  left: 990px;
+  top: 210px;
+
+  color: #E3F0AF;     /* from Figma */
+  font-size: 96px;    /* from Figma */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  line-height: 90px;
+  word-wrap: break-word;
+}
+
+/* Small text: 594.88 wide at (990, 654). */
+.home-smalltext {
+  width: 595px;      /* roughly 594.88 */
+  position: absolute;
+  left: 990px;
+  top: 654px;
+
+  color: #ffffff;
+  font-size: 18px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  word-wrap: break-word;
+}
+
+
+
+/*from disc*/
+.button-secondary {
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+}
+
+.button-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.friend-detail {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-content {
+  padding: 1rem;
+}
+
+.form-container {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/*end of disc resource */
+
+.create-button {
+  margin-left: 1rem; 
+  background-color: #5DB996;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 36.55px;
+  cursor: pointer;
+  text-decoration: none; /* for <Link> */
+  font-size: 1rem;
+
+}
+
+.create-button:hover {
+  background-color: #118B50;
+}
 
 /*.App {
   text-align: center;

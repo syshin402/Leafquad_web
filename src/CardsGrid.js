@@ -6,7 +6,8 @@ function CardsGrid({ data, favorites, toggleFavorite }) {
     return (
         <div className="cards-grid">
             {data.map((card, index) => {
-                const isFavorited = favorites.includes(index);
+                const cardIndex = card._index ?? index;
+                const isFavorited = favorites.includes(cardIndex);
 
                 return (
                     <article className="card" key={index}>
@@ -19,19 +20,14 @@ function CardsGrid({ data, favorites, toggleFavorite }) {
                             <h3 className="card-name">{card.name}</h3>
                             <p className="card-major">Major: {card.major}</p>
                             <p className="card-interests">
-                                {card.interests.map((interest, i) => (
-                                    <React.Fragment key={i}>
-                                        {interest}
-                                        <br />
-                                    </React.Fragment>
-                                ))}
+                                {card.interests.join(", ")}
                             </p>
                         </div>
                         <img 
                             src={isFavorited ? starcolor : staricon} //if isFavorited is true, then show star color image
                             alt="Favorite icon"
                             className="star-icon"
-                            onClick={() => toggleFavorite(index)}
+                            onClick={() => toggleFavorite(cardIndex)}
                         />
                     </article>
                 );
