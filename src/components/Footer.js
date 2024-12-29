@@ -1,8 +1,8 @@
 import React from "react";
-import facebook from './images/facebook-icon.png';
-import instagram from './images/instagram-icon.png';
-import twitter from './images/twitter-icon.png';
-import './App.css';
+import facebook from '../images/facebook-icon.png';
+import instagram from '../images/instagram-icon.png';
+import twitter from '../images/twitter-icon.png';
+import '../App.css';
 
 function Footer() {
     return (

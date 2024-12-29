@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { createUser, updateUser, getUserByID } from "./api/users"; 
-import "./App.css";
+import { createUser, updateUser, getUserByID } from "../api/users"; 
+import "../App.css";
 function FriendForm() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -58,10 +58,13 @@ function FriendForm() {
       if (id) {
         await updateUser(id, formData);
       } else {
-        await createUser(formData);
+        const newUser = await createUser(formData);
+        console.log("created user: ", newUser);
+        //await createUser(formData);
       }
       navigate("/");
-    } catch {
+    } catch (error) {
+      console.error("Create user error: ", error);
       setError("Failed to save user");
     } finally {
       setLoading(false);
@@ -135,7 +138,7 @@ function FriendForm() {
           type="file"
           onChange={(e) => setImage(e.target.files?.[0] || null)}
           accept="image/*"
-          required={!id} 
+          //required={!id} 
         />
         </div>
 

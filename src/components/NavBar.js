@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import logo from './images/logo.png';
-import profileblock from './images/login_image.png';
-import arrow from './images/Arrow.png';
+import logo from '../images/logo.png';
+import profileblock from '../images/login_image.png';
+import arrow from '../images/Arrow.png';
 import { Link } from 'react-router-dom';
 function NavBar(){
 
@@ -9,7 +9,8 @@ function NavBar(){
 
     const handleLoginClick = () => {
         setIsLoggedIn((prev) => !prev);
-    };
+    };  // this is to change the login button to profile block
+    
     return (
         <header className="site-header">
             <div className="header-content">
@@ -32,11 +33,10 @@ function NavBar(){
                         <li><Link to="/" className="current">Friends</Link></li>
                     </ul>
                 </nav>
-            {!isLoggedIn ?  (
-                <div className="login-button" onClick={handleLoginClick}>
-                    <div className="login-button-text">
-                        Login
-                    </div>
+            {!isLoggedIn ?  ( <div className="login-button" onClick={handleLoginClick}>
+                            <div className="login-button-text">
+                            Login
+                            </div>
                 </div>    
             )  : (
                 <div className="profile-block" onClick={handleLoginClick}>

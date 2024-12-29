@@ -1,10 +1,10 @@
 export interface Friend {
     id: string;
-    firstName: string;
-    lastName: string;
+    firstname: string;
+    lastname: string;
     email: string;
     bio: string;
     major: string;
-    graduationYear: string;
+    graduationyear: string;
     image_url: File;
   }

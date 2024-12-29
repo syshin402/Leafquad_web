@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import './App.css';
-import { getUserByID, deleteUser } from "./api/users"; 
+import '../App.css';
+import { getUserByID, deleteUser } from "../api/users"; 
 
 function FriendDetail() {
     const { id } = useParams();

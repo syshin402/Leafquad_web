@@ -1,12 +1,9 @@
-import ReactDOM from "react-dom/client";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import './App.css';
-import homeimage from "./images/home_image.png"
+import '../App.css';
+import homeimage from "../images/home_image.png"
 
 function Home() {
+  
     return (
       <div className="Home">
         <div className="home-content">
@@ -26,5 +23,5 @@ function Home() {
         </div>
       </div>
     );
-  }
+}
 export default Home;
