@@ -27,7 +27,8 @@ function Friends() {
         setUsers(data);
         setError("");
         }
-        catch (error) {
+        catch (err) {
+            console.error(err)
             setError("Failed to load users");
         }
         finally {
@@ -63,8 +64,6 @@ function Friends() {
             </div>
         );
     }
-
-    
 
     return (
         <>

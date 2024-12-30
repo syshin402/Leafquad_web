@@ -28,8 +28,8 @@ function FriendForm() {
   async function loadUser(userId) {
     try {
       const user = await getUserByID(userId);
-      setFirstName(user.firstName);
-      setLastName(user.lastName);
+      setFirstName(user.first_name);
+      setLastName(user.last_name);
       setEmail(user.email);
       setBio(user.bio);
       setMajor(user.major);
@@ -45,8 +45,8 @@ function FriendForm() {
 
     try {
       const formData = new FormData();
-      formData.append("firstName", firstName);
-      formData.append("lastName", lastName);
+      formData.append("first_name", firstName);
+      formData.append("last_name", lastName);
       formData.append("email", email);
       formData.append("bio", bio);
       formData.append("major", major);

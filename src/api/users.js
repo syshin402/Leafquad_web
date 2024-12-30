@@ -1,4 +1,5 @@
-const BASE_URL = "https://disc-assignment-5-users-api.onrender.com/api/users";
+//const BASE_URL = "https://disc-assignment-5-users-api.onrender.com/api/users";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL  || "http://localhost:3005/api/users";
 
 // GET /api/users
 export async function getAllUsers() {

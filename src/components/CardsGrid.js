@@ -21,7 +21,7 @@ function CardsGrid({ data, favorites, toggleFavorite }) {
                             <p>{item.interests.join(", ")}</p>
                         </>
                     }
-                    onClick={() => toggleFavorite(cardIndex)}
+                    onClickFavorite={() => toggleFavorite(cardIndex)}
                     isFavorited={isFavorited}
                     />
                 );

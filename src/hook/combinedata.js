@@ -4,7 +4,7 @@ import placeholder from "../images/placeholder-profile.png";
 export function useCombineUserData(users){
     const combinedUserData = useMemo(() => {
         return users.map((user, index) => ({
-                name: `${user.firstname} ${user.lastname}`,
+                name: `${user.first_name} ${user.last_name}`,
                 major: user.major || "Unknown Major",
                 interests: [
                     user.bio || "No bio provided",

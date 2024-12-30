@@ -19,7 +19,7 @@ function GenericCard({title, imageSrc, body, onClickFavorite, isFavorited}) {
     if (onClickFavorite) {
         favoriteElement = (
             <img    
-                src={isFavorited ? {starcolor} : {staricon}}
+                src={isFavorited ? starcolor : staricon}
                 alt="Favorite icon"
                 className="star-icon"
                 onClick={onClickFavorite}
