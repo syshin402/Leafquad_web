@@ -3,9 +3,10 @@ import CardsGrid from "../components/CardsGrid";
 import { useLocation } from "react-router-dom";
 
 import searchicon from '../images/search-icon.png';
-import { getAllUsers } from "../api/users";
+import { getAllUsers, deleteUser, updateUser } from "../api/users";
 import { useNavigate } from "react-router-dom";
 import { useCombineUserData } from "../hook/combinedata";
+import { useAuth } from "../context/AuthContext";
 
 function Friends() {
     const [users, setUsers] = useState([]);
@@ -14,6 +15,7 @@ function Friends() {
     const [favorites, setFavorites] = useState([]);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { isLoggedIn, setIsLoggedIn } = useAuth(); 
 
     useEffect(() => {
         
@@ -35,7 +37,16 @@ function Friends() {
             setLoading(false);            
         }
     }
-    
+    function handleCreateClick() {
+      if (!isLoggedIn) {
+        alert("You need to log in to create users");
+        return;
+      }
+      navigate("/friends/create");
+    }
+
+ 
+  
     const toggleFavorite = (index) => {
         setFavorites((prev) => {
         if (prev.includes(index)) { // if card is already favorited remove it
@@ -84,10 +95,11 @@ function Friends() {
 
             <button
             className="button create-button"
-            onClick={() => navigate("/friends/create")}
+            onClick={handleCreateClick}
             >
             Create User
             </button>
+          
         </div>
   
         {/*Main content*/}

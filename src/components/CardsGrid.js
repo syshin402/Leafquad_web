@@ -23,6 +23,7 @@ function CardsGrid({ data, favorites, toggleFavorite }) {
                     }
                     onClickFavorite={() => toggleFavorite(cardIndex)}
                     isFavorited={isFavorited}
+                    u={item}
                     />
                 );
             }); // end of data.map function

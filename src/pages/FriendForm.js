@@ -1,9 +1,11 @@
-// FriendForm.tsx 
+// FriendForm.js 
 
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createUser, updateUser, getUserByID } from "../api/users"; 
+
 import "../App.css";
+
 function FriendForm() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -14,8 +16,8 @@ function FriendForm() {
   const [bio, setBio] = useState("");
   const [major, setMajor] = useState("");
   const [graduationYear, setGraduationYear] = useState("");
-  const [image, setImage] = useState(null);
 
+  const [profilepicture, setProfilepicture] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -30,11 +32,14 @@ function FriendForm() {
       const user = await getUserByID(userId);
       setFirstName(user.first_name);
       setLastName(user.last_name);
-      setEmail(user.email);
-      setBio(user.bio);
-      setMajor(user.major);
-      setGraduationYear(user.graduationYear);
-    } catch {
+      setEmail(user.email || "");
+
+      //setBio(user.bio);
+      setMajor(user.major || "") ;
+      setGraduationYear(user.graduationYear || "");
+      setProfilepicture(user.profilepicture || "");
+
+    } catch (err) {
       setError("Failed to load user");
     }
   }
@@ -42,30 +47,30 @@ function FriendForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     try {
-      const formData = new FormData();
-      formData.append("first_name", firstName);
-      formData.append("last_name", lastName);
-      formData.append("email", email);
-      formData.append("bio", bio);
-      formData.append("major", major);
-      formData.append("graduationYear", graduationYear);
-      if (image) {
-        formData.append("image", image);
-      }
+ 
+      const newUserData = {
+
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        major,
+        graduationYear,
+        profilepicture
+      };
 
       if (id) {
-        await updateUser(id, formData);
+        await updateUser(id, newUserData);
       } else {
-        const newUser = await createUser(formData);
-        console.log("created user: ", newUser);
-        //await createUser(formData);
+
+        await createUser(newUserData);
       }
       navigate("/");
-    } catch (error) {
-      console.error("Create user error: ", error);
-      setError("Failed to save user");
+    } catch (err) {
+
+      setError(err.message || "Failed to save user");
     } finally {
       setLoading(false);
     }
@@ -106,15 +111,6 @@ function FriendForm() {
         </div>
 
         <div className="form-group">
-        <label>Bio</label>
-        <textarea
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          required
-        />
-        </div>
-
-        <div className="form-group">
         <label>Major</label>
         <input
           value={major}
@@ -122,7 +118,7 @@ function FriendForm() {
           required
         />
         </div>
-        
+
         <div className="form-group">
         <label>Graduation Year</label>
         <input
@@ -131,6 +127,27 @@ function FriendForm() {
           required
         />
         </div>
+
+        <div>
+          <label>Profile Picture URL</label>
+          <input
+            value={profilepicture}
+            onChange={(e) => setProfilepicture(e.target.value)}
+          />
+        </div>
+        {/*
+        <div className="form-group">
+        <label>Bio</label>
+        <textarea
+          value={bio}
+          onChange={(e) => setBio(e.target.value)}
+          required
+        />
+        </div>
+
+        
+        
+        
 
         <div className="form-group">
         <label>Profile Picture</label>
@@ -141,7 +158,7 @@ function FriendForm() {
           //required={!id} 
         />
         </div>
-
+        */}
 
         <div className="button-group">
           <button type="submit" 

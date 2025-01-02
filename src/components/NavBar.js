@@ -2,15 +2,26 @@ import React, { useState } from "react"
 import logo from '../images/logo.png';
 import profileblock from '../images/login_image.png';
 import arrow from '../images/Arrow.png';
-import { Link } from 'react-router-dom';
-function NavBar(){
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from "../context/AuthContext";
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+function NavBar(){
+    const { isLoggedIn, setIsLoggedIn } = useAuth(); 
+    const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
     const handleLoginClick = () => {
-        setIsLoggedIn((prev) => !prev);
+        navigate("/login");
+        //setIsLoggedIn((prev) => !prev);
     };  // this is to change the login button to profile block
-    
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        setMenuOpen(false);
+    // if you store a token, setToken("") as well
+    };
+    const handleProfileClick = () => {
+        setMenuOpen((prev) => !prev);
+    }
     return (
         <header className="site-header">
             <div className="header-content">
@@ -33,13 +44,14 @@ function NavBar(){
                         <li><Link to="/" className="current">Friends</Link></li>
                     </ul>
                 </nav>
-            {!isLoggedIn ?  ( <div className="login-button" onClick={handleLoginClick}>
-                            <div className="login-button-text">
-                            Login
-                            </div>
+            {!isLoggedIn ?  ( 
+                <div className="login-button" onClick={handleLoginClick}>
+                    <div className="login-button-text">
+                        Login
+                    </div>
                 </div>    
             )  : (
-                <div className="profile-block" onClick={handleLoginClick}>
+                <div className="profile-block" onClick={handleProfileClick}>
                     <img
                         className="profile-block-image"
                         src={profileblock}
@@ -54,6 +66,21 @@ function NavBar(){
                                 alt="arrow" />
                         </div>
                     </div>
+                
+
+                    {menuOpen && (
+                        <div className="profile-drowpdown-menu">
+                            <ul>
+                                <li>Edit</li>
+                                <li class="dropdown-divider"></li>
+                                <li>Settings</li>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-logout" onClick={handleLogout}>
+                                Logout
+                            </li>
+                            </ul>
+                        </div>
+                    )}
                 </div>
             )}
             </div>

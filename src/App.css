@@ -84,6 +84,66 @@ body {
   text-decoration: underline;
 }
 
+.profile-dropdown-menu {
+  position: absolute;        /* so it floats */
+  top: 60px;                 /* adjust so it’s below the profile avatar/name */
+  right: 0;                  /* or left: 0; depending on your layout */
+  background-color: #F8FAFC;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  padding: 8px 0;
+  min-width: 120px;
+  z-index: 999;              /* on top of other elements */
+}
+
+/* 2) If you want a little arrow pointer above the dropdown */
+.profile-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;             /* place it above the menu box */
+  right: 20px;           /* adjust horizontally as needed */
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #F8FAFC;
+}
+
+/* 3) Remove bullets and default spacing */
+.profile-dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4) Each item’s default style */
+.profile-dropdown-menu ul li {
+  padding: 10px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #0F172A;
+  cursor: pointer;
+  white-space: nowrap;     /* keeps text on one line */
+}
+
+/* 5) Subtle hover effect */
+.profile-dropdown-menu ul li:hover {
+  background-color: #E2E8F0; 
+}
+
+/* 6) Divider line between items */
+.dropdown-divider {
+  height: 1px;
+  background: #475569;
+  margin: 5px 0;
+}
+
+/* 7) Special styling for “Logout” (red text) */
+.dropdown-logout {
+  color: #DC2626;
+}
+
 /* 
   SEARCH BAR
 */
@@ -319,7 +379,6 @@ body {
 
 /* 
    The main content area from Figma 
-   left: -12px; top: 125px; with a 1714x874 size 
 */
 .home-content {
   width: 1714px;
@@ -329,7 +388,7 @@ body {
 
 }
 
-/* The big image on the left side, 888x874 */
+/* The big image on the left side */
 .home-image {
   width: 888px;
   height: 874px;
@@ -338,7 +397,7 @@ body {
   top: 0px;
 }
 
-/* Big text on the right: 724x444 at (990, 210). */
+
 .home-bigtext {
   width: 724px;
   height: 444px;
@@ -354,9 +413,9 @@ body {
   word-wrap: break-word;
 }
 
-/* Small text: 594.88 wide at (990, 654). */
+
 .home-smalltext {
-  width: 595px;      /* roughly 594.88 */
+  width: 595px; 
   position: absolute;
   left: 990px;
   top: 654px;
@@ -445,3 +504,4 @@ body {
 .create-button:hover {
   background-color: #118B50;
 }
+

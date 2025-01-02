@@ -1,10 +1,46 @@
 import React from "react";
 import staricon from '../images/star-icon.png';
 import starcolor from '../images/star-color.png';
+import { useNavigate } from "react-router-dom";
+import { getAllUsers, deleteUser, updateUser } from "../api/users";
+import { useAuth } from "../context/AuthContext";
 
 
-function GenericCard({title, imageSrc, body, onClickFavorite, isFavorited}) {
+function GenericCard({title, imageSrc, body, onClickFavorite, isFavorited, u}) {
+    const navigate = useNavigate();
+    const { isLoggedIn, setIsLoggedIn } = useAuth(); 
+
+
+       async function handleDelete(userId) {
+          if (!isLoggedIn) {
+            alert("You need to log in to delete users");
+            return;
+          }
+          if (window.confirm("Are you sure you want to delete?")) {
+            try {
+              await deleteUser(userId);
+              navigate("/");
+            } catch (err) {
+              alert(err.message);
+            }
+          }
+        }
+    
+        async function handleEdit(userId) {
+          if (!isLoggedIn) {
+            alert("You need to log in to edit users");
+            return;
+          }
+          if (window.confirm("Are you sure you want to edit?")) {
+            try {
+              await updateUser(userId);
+            } catch (err) {
+              alert(err.message);
+            }
+          }
+        }
     let imageElement = null;
+
     if (imageSrc) {
         imageElement = (
             <img 
@@ -35,7 +71,16 @@ function GenericCard({title, imageSrc, body, onClickFavorite, isFavorited}) {
                 <p className="card-interests">{body}</p>
             </div>
             {favoriteElement}
+            <button onClick={() => handleEdit(u.id)}>
+            Edit
+            </button>
+            <button onClick={() => handleDelete(u.id)}>
+            Delete
+            </button>
+
         </div>
+        
+        
     );
 }
 
