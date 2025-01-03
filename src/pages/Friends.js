@@ -3,7 +3,7 @@ import CardsGrid from "../components/CardsGrid";
 import { useLocation } from "react-router-dom";
 
 import searchicon from '../images/search-icon.png';
-import { getAllUsers, deleteUser, updateUser } from "../api/users";
+import { getAllUsers } from "../api/users";
 import { useNavigate } from "react-router-dom";
 import { useCombineUserData } from "../hook/combinedata";
 import { useAuth } from "../context/AuthContext";
@@ -15,7 +15,7 @@ function Friends() {
     const [favorites, setFavorites] = useState([]);
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const { isLoggedIn, setIsLoggedIn } = useAuth(); 
+    const { isLoggedIn } = useAuth(); 
 
     useEffect(() => {
         

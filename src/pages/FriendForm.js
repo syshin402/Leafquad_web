@@ -13,7 +13,6 @@ function FriendForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [bio, setBio] = useState("");
   const [major, setMajor] = useState("");
   const [graduationYear, setGraduationYear] = useState("");
 
@@ -34,7 +33,6 @@ function FriendForm() {
       setLastName(user.last_name);
       setEmail(user.email || "");
 
-      //setBio(user.bio);
       setMajor(user.major || "") ;
       setGraduationYear(user.graduationYear || "");
       setProfilepicture(user.profilepicture || "");
@@ -135,30 +133,7 @@ function FriendForm() {
             onChange={(e) => setProfilepicture(e.target.value)}
           />
         </div>
-        {/*
-        <div className="form-group">
-        <label>Bio</label>
-        <textarea
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          required
-        />
-        </div>
-
         
-        
-        
-
-        <div className="form-group">
-        <label>Profile Picture</label>
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files?.[0] || null)}
-          accept="image/*"
-          //required={!id} 
-        />
-        </div>
-        */}
 
         <div className="button-group">
           <button type="submit" 

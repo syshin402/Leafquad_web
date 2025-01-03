@@ -2,13 +2,13 @@ import React from "react";
 import staricon from '../images/star-icon.png';
 import starcolor from '../images/star-color.png';
 import { useNavigate } from "react-router-dom";
-import { getAllUsers, deleteUser, updateUser } from "../api/users";
+import { deleteUser, updateUser } from "../api/users";
 import { useAuth } from "../context/AuthContext";
 
 
 function GenericCard({title, imageSrc, body, onClickFavorite, isFavorited, u}) {
     const navigate = useNavigate();
-    const { isLoggedIn, setIsLoggedIn } = useAuth(); 
+    const { isLoggedIn } = useAuth(); 
 
 
        async function handleDelete(userId) {

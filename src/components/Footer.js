@@ -9,9 +9,9 @@ function Footer() {
         <footer className="site-footer">
         <p className="footer-text">Made by Sophie Shin</p>
         <div className="footer-icons">
-            <a href="#"><img src={facebook} alt="Facebook Icon" /></a>
-            <a href="#"><img src={instagram} alt="Instagram Logo" /></a>
-            <a href="#"><img src={twitter} alt="Twitter Logo" /></a>     
+            <button><img src={facebook} alt="Facebook Icon" /></button>
+            <button><img src={instagram} alt="Instagram Logo" /></button>
+            <button><img src={twitter} alt="Twitter Logo" /></button>     
         </div>
         </footer>
     );

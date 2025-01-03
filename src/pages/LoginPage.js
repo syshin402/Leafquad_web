@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 
 
 function LoginPage() {
-    const { isLoggedIn, setIsLoggedIn, token, setToken } = useAuth();
+    const { setIsLoggedIn, token, setToken } = useAuth();
     //const [token, setToken] = useState("");
     const [protectedData, setProtectedData] = useState(null);
     const [error, setError] = useState("");
@@ -17,8 +17,8 @@ function LoginPage() {
             setToken(accessToken);
             window.history.replaceState(null, "", window.location.pathname);
         }
-    }, []
-    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleSignIn = async (e) => {
         e.preventDefault();
