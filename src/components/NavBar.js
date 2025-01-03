@@ -38,9 +38,9 @@ function NavBar(){
                 <nav className="main-nav">
                     <ul className="nav-links">
                         <li><Link to="/Home">Home</Link></li>
-                        <li><button>About</button></li>
-                        <li><button>Blog</button></li>
-                        <li><button>Contact</button></li>
+                        <li><Link to="/Home">About</Link></li>
+                        <li><Link to="/Home">Blog</Link></li>
+                        <li><Link to="/Home">Contact</Link></li>
                         <li><Link to="/" className="current">Friends</Link></li>
                     </ul>
                 </nav>
