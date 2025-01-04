@@ -12,7 +12,7 @@ function Home() {
             alt="home-image"
             className="home-image"
           />
-  
+  <div class="home-text-container">
           <h1 className="home-bigtext">
             The perfect site for making university friends
           </h1>
@@ -20,6 +20,7 @@ function Home() {
           <p className="home-smalltext">
             Find your quad of friends
           </p>
+          </div>
         </div>
       </div>
     );

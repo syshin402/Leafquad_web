@@ -91,7 +91,7 @@ function LoginPage() {
 
     return (
         <div style={{ padding: "20px", maxWidth: "500px", margin: "0 auto" }}>
-        <h1>Login</h1>
+        <h1 className="login-text">Login</h1>
   
         {error && (
           <div
@@ -110,7 +110,7 @@ function LoginPage() {
   
         {!token ? (
           <div>
-            <h2>Welcome to the Auth Demo</h2>
+            <p className="login-describe">Sign in if you have already signed up</p>
             <form
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
@@ -119,29 +119,24 @@ function LoginPage() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                style={{ padding: "8px" }}
+                className="input-login"
               />
               <input
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{ padding: "8px" }}
+                className="input-login"
               />
-              <div style={{ display: "flex", gap: "10px" }}>
-                <button
-                  onClick={handleSignIn}
-                  style={{ padding: "10px 20px", flex: 1 }}
-                >
-                  Sign In
-                </button>
-                <button
-                  onClick={handleSignUp}
-                  style={{ padding: "10px 20px", flex: 1 }}
-                >
-                  Sign Up
-                </button>
-              </div>
+            <div class="sign-button-container">
+              <button class="sign-button" onClick={handleSignIn}>
+                <span class="sign-button-text">Sign In</span>
+              </button>
+              <button class="sign-button" onClick={handleSignUp}>
+                <span class="sign-button-text">Sign Up</span>
+              </button>
+            </div>
+
             </form>
           </div>
         ) : (

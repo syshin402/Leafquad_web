@@ -87,7 +87,7 @@ body {
 .profile-dropdown-menu {
   position: absolute;        /* so it floats */
   top: 60px;                 /* adjust so it’s below the profile avatar/name */
-  right: 0;                  /* or left: 0; depending on your layout */
+  right: 0;      
   background-color: #F8FAFC;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   border-radius: 5px;
@@ -381,29 +381,32 @@ body {
    The main content area from Figma 
 */
 .home-content {
-  width: 1714px;
-  height: 874px;
-  padding: 5rem 0;
-  position: static;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 
 }
 
 /* The big image on the left side */
 .home-image {
-  width: 888px;
-  height: 874px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+
+  width: 45%;
+  height: 100%;
+  object-fit: cover;
 }
 
-
+.home-text-container {
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  justify-content: center; 
+  padding: 8rem;            /* space around the text */
+  width: 55%;  /*rest of the space after 45% for image */
+  box-sizing: border-box;   /* so padding X exceed the container width */
+}
 .home-bigtext {
-  width: 724px;
-  height: 444px;
-  position: absolute;
-  left: 990px;
-  top: 210px;
+  margin: 0;
+  margin-bottom: 3rem;  
 
   color: #E3F0AF;     /* from Figma */
   font-size: 96px;    /* from Figma */
@@ -415,10 +418,7 @@ body {
 
 
 .home-smalltext {
-  width: 595px; 
-  position: absolute;
-  left: 990px;
-  top: 654px;
+  margin: 0;
 
   color: #ffffff;
   font-size: 18px;
@@ -505,3 +505,71 @@ body {
   background-color: #118B50;
 }
 
+/*Login page elements*/
+.login-text {
+  color: #118B50;
+  text-align: center;
+  font-size: 38px;
+  font-family: 'DM Sans', sans-serif; 
+}
+.login-describe {
+  color: #118B50;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif; 
+  font-style:italic;
+}
+
+.sign-button-container {
+  margin-top: 1rem; /* gap from above element*/
+  display: flex;
+  gap: 1rem;  /* gap between two buttons*/
+  justify-content: center;
+  
+}
+.sign-button-text {
+  text-align: center;
+  color: #5DB996;
+  font-size: 24px;
+  font-family: 'DM Sans', sans-serif; 
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+
+}
+.sign-button {
+  display: center; 
+  padding: 1rem 4rem;
+  border-radius: 30px; 
+  border: 2.1px solid #5DB996; 
+  background-color: #ffffff; 
+  cursor: pointer;
+  
+   
+}
+.sign-button.primary {
+  background-color: #5DB996;
+  color: white;
+  border: 2px solid transparent;
+}
+.sign-button-text {
+  white-space: nowrap;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;     
+  font-weight: 500;                  
+  color: #5DB996;      
+}
+.sign-button:hover {
+  background-color: #e1f3eb;  /* a very light teal background */
+}
+.input-login {
+  width: 90%;
+  max-width: 1009px;
+  height: 50px;
+  margin: 2rem auto 0.2rem auto;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid #5DB996;
+  position: relative;
+}
