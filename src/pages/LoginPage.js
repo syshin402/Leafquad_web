@@ -91,7 +91,7 @@ function LoginPage() {
 
     return (
         <div style={{ padding: "20px", maxWidth: "500px", margin: "0 auto" }}>
-        <h1>Supabase Auth Demo</h1>
+        <h1>Login</h1>
   
         {error && (
           <div
