@@ -12,6 +12,7 @@ import FriendDetail from './pages/FriendDetail';
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage"; 
 import EditFriend from "./pages/FriendEdit";
+import About from "./pages/About";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <NavBar /> 
       <Routes>
         <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
         <Route path="/" element={<FriendsPage />} />
         <Route path="/friends/create" element={<FriendForm />} />
 
