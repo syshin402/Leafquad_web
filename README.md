@@ -3,6 +3,7 @@ This project is a React-based user interface that connects to the LeafQuad backe
 vercel link: https://leafquad-frontend.vercel.app/
 
 **Features:**
+
 Responsive Layout: Uses modern React patterns (Hooks, functional components).
 Fetches Data from a Node/Express or Supabase-based backend.
 Sign In / Sign Up workflows for user authentication (if supported by the backend).
