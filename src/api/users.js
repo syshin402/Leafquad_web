@@ -43,8 +43,27 @@ export async function updateUser(id, userData) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),
   });
+  
   if (!response.ok) throw new Error("Failed to update user");
+  console.log({error: response});
   return response.json();
+
+/*
+  if (error) {
+    console.error("Supabase error:", error);
+    return res.status(500).json({error: error.message});
+  }
+  if (!data) {
+    return res.status(404).json({ error: "User not found" });
+  }
+  return res.json(data);
+}
+catch (err) {
+  console.error("Failed to update user: ", err);
+  return res.status(500).json({ error: "Failed to update users" });
+}
+})
+*/
 };
 
 export async function deleteUser(id) {

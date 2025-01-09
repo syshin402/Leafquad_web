@@ -33,7 +33,8 @@ function GenericCard({title, imageSrc, body, onClickFavorite, isFavorited, u}) {
           }
           if (window.confirm("Are you sure you want to edit?")) {
             try {
-              await updateUser(userId);
+              await updateUser(userId, u);
+              navigate(`/friends/${userId}/edit`);
             } catch (err) {
               alert(err.message);
             }

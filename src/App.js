@@ -26,7 +26,7 @@ function App() {
         <Route path="/friends/create" element={<FriendForm />} />
 
         <Route path="/friends/:id" element={<FriendDetail />} />
-        <Route path="/friends/:id/edit" element={<FriendForm />} />
+        {/*<Route path="/friends/:id/edit" element={<FriendForm />} />*/}
         
         <Route path="/login" element={<LoginPage />} />
         <Route path="/friends/:id/edit" element={<EditFriend />} />
