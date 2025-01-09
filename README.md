@@ -8,6 +8,6 @@ Responsive Layout: Uses modern React patterns (Hooks, functional components).
 
 Fetches Data from a Node/Express or Supabase-based backend.
 
-Sign In / Sign Up workflows for user authentication (if supported by the backend).
+Sign In / Sign Up workflows for user authentication (supported by backend Leafquad-backend)
 
 Friend Discovery: A “Friends” page that displays user cards, favorite toggles, etc.
